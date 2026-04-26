@@ -23,6 +23,9 @@ RUN addgroup -g 1001 -S nodejs && \
 RUN chown -R nodejs:nodejs /app
 USER nodejs
 
+# Set default bind address to all interfaces so the container is reachable externally
+ENV HOST=0.0.0.0
+
 # Expose the application port (default 3000, overridable via PORT env var)
 EXPOSE 3000
 

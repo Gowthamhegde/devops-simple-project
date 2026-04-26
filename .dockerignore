@@ -1,0 +1,10 @@
+node_modules
+npm-debug.log
+.git
+.github
+Jenkinsfile
+coverage
+*.log
+.DS_Store
+README.md
+labs

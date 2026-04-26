@@ -29,6 +29,7 @@ function getConfig(overrides = {}) {
     environment: overrides.environment || process.env.ENVIRONMENT || "local",
     release: overrides.release || process.env.RELEASE || "0.1.0",
     port: Number(overrides.port || process.env.PORT || 3000),
+    host: overrides.host || process.env.HOST || "0.0.0.0",
     dataFile: resolve(overrides.dataFile || process.env.DATA_FILE || join(rootDir, "data", "practice-board.json"))
   };
 }
@@ -191,7 +192,7 @@ export async function createAppServer(overrides = {}) {
   return { server, store, config };
 }
 
-function listen(server, port) {
+function listen(server, port, host) {
   return new Promise((resolve, reject) => {
     const onError = (error) => {
       server.off("listening", onListening);
@@ -205,15 +206,15 @@ function listen(server, port) {
 
     server.once("error", onError);
     server.once("listening", onListening);
-    server.listen(port);
+    server.listen(port, host);
   });
 }
 
 async function start() {
   const { server, config } = await createAppServer();
   try {
-    await listen(server, config.port);
-    console.log(`${config.appName} running on http://localhost:${config.port}`);
+    await listen(server, config.port, config.host);
+    console.log(`${config.appName} running on http://${config.host}:${config.port}`);
   } catch (error) {
     if (error.code === "EADDRINUSE") {
       console.error(`Port ${config.port} is already in use. Stop the other process or run with PORT=<another-port> npm start.`);

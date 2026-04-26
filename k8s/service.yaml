@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: release-board-service
+  namespace: release-board
+  labels:
+    app: release-board-lab
+spec:
+  type: ClusterIP
+  selector:
+    app: release-board-lab
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3000
+      protocol: TCP
