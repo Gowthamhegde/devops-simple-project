@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "id": "e7899ae4-ce4b-4c2d-a905-15c7ef4673dd",
+      "title": "Practice blue-green deploy",
+      "service": "api",
+      "environment": "staging",
+      "owner": "Gowtham",
+      "status": "done",
+      "createdAt": "2026-04-26T03:41:30.491Z",
+      "updatedAt": "2026-04-26T03:41:38.035Z"
+    },
+    {
+      "id": "b13fcf15-9a86-4f49-9dc2-c9cdb515b572",
+      "title": "hwllo",
+      "service": "app",
+      "environment": "production",
+      "owner": "unassigned",
+      "status": "done",
+      "createdAt": "2026-04-26T03:40:20.737Z",
+      "updatedAt": "2026-04-26T03:41:39.065Z"
+    },
+    {
+      "id": "seed-3",
+      "title": "Confirm rollback command path",
+      "service": "worker",
+      "environment": "production",
+      "owner": "Rin",
+      "status": "done",
+      "createdAt": "2026-04-25T10:45:00.000Z",
+      "updatedAt": "2026-04-26T03:41:35.908Z"
+    }
+  ]
+}
